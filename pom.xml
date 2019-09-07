@@ -53,6 +53,7 @@
 				</executions>
 				<configuration>
 					<repository>registry.cn-hangzhou.aliyuncs.com/wgw-repository/my-repository</repository>
+					<imageName>${project.artifactId}</imageName>
 					<tag>${project.version}</tag>
 					<buildArgs>
 						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
