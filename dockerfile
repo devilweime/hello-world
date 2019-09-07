@@ -6,8 +6,8 @@ MAINTAINER wgw <1665382553@qq.com>
 
 
 #属性
-ARG JAR_FILE
-ARG EXPOSE_PORT 28080/tcp
+ARG JAR_FILE=hello-world-0.0.1-SNAPSHOT.jar
+ARG EXPOSE_PORT=28080/tcp
 
 #配置需要打包的文件
 ADD target/lib           /usr/opt/hello-word/lib
