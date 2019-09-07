@@ -9,11 +9,8 @@ ARG JAR_FILE=hello-world-0.0.1-SNAPSHOT.jar
 ARG EXPOSE_PORT=28080/tcp
 
 #配置需要打包的文件
-ADD target/lib           /usr/opt/hello-word/lib
 
 ADD target/${JAR_FILE} /usr/opt/hello-word/myservice.jar
-
-ARG JAR_FILE
 
 #暴露的端口
 EXPOSE ${EXPOSE_PORT}

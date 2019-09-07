@@ -7,10 +7,8 @@ APP_PORT=28080
 #容器端口
 IMAGE_EXPOSE_PORT=28080
 
-#获取路径，解决ADD、COPY的上下文问题
-myPath=$(pwd)
 #构建镜像
-docker build -f $myPath -t $IMAGE_NAME .
+docker build -t $IMAGE_NAME .
 
 #推送到远程仓库
 docker push $DOCKER_REGISTRY $IMAGE_NAME
