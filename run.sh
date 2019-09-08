@@ -1,7 +1,8 @@
 #定义变量
+IMAGE_TAG=2019
 IMAGE_NAME=hello-world
 CONTAINER_NAME=$IMAGE_NAME
-DOCKER_REGISTRY=registry.cn-hangzhou.aliyuncs.com/wgw-repository/my-repository
+DOCKER_REGISTRY=registry.cn-hangzhou.aliyuncs.com/wgw-repository/hello-world
 #宿主机端口
 APP_PORT=28080
 #容器端口
@@ -18,7 +19,12 @@ fi
 docker build -t $IMAGE_NAME .
 
 #推送到远程仓库
-docker push $DOCKER_REGISTRY:$IMAGE_NAME
+new_image_id=$(docker images | grep "$IMAGE_NAME" | awk '{print $3}')
+#如有已经提前登陆则不用
+#docker login --username=18154759057 registry.cn-hangzhou.aliyuncs.com
+docker tag $new_image_id $DOCKER_REGISTRY:$IMAGE_TAG
+docker push $DOCKER_REGISTRY:$IMAGE_TAG
+
 
 #删除同名docker容器
 cid=$(docker ps -a| grep "$CONTAINER_NAME" | awk '{print $1}')
