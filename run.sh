@@ -21,7 +21,7 @@ docker build -t $IMAGE_NAME .
 #推送到远程仓库
 new_image_id=$(docker images | grep "$IMAGE_NAME" | awk '{print $3}')
 #目前发现一定要登录
-echo "aq865375" | docker login --username=18154759057 registry.cn-hangzhou.aliyuncs.com
+docker login --username=18154759057 -p aq865375 registry.cn-hangzhou.aliyuncs.com
 docker tag $new_image_id $DOCKER_REGISTRY:$IMAGE_TAG
 docker push $DOCKER_REGISTRY:$IMAGE_TAG
 
