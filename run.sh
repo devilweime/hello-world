@@ -7,6 +7,13 @@ APP_PORT=28080
 #容器端口
 IMAGE_EXPOSE_PORT=28080
 
+
+#删除同名docker镜像
+image_id=$(docker images | grep "$IMAGE_NAME" | awk '{print $3}')
+if [ "$image_id" != "" ]; then
+   docker rmi -f $image_id
+fi
+
 #构建镜像
 docker build -t $IMAGE_NAME .
 
@@ -19,12 +26,6 @@ if [ "$cid" != "" ]; then
    docker rm -f $cid
 fi
 
-
-#删除同名docker镜像
-image_id=$(docker images | grep "$IMAGE_NAME" | awk '{print $3}')
-if [ "$image_id" != "" ]; then
-   docker rmi -f $image_id
-fi
 
 #启动运行
 docker run -d -p $APP_PORT:$IMAGE_EXPOSE_PORT  $IMAGE_NAME $CONTAINER_NAME
