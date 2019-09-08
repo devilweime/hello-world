@@ -16,6 +16,6 @@ ADD target/${JAR_FILE} myservice.jar
 EXPOSE ${EXPOSE_PORT}
 
 #入口
-ENTRYPOINT ["java", "-Dserver.port=${EXPOSE_PORT} -jar", "myservice.jar"]
+ENTRYPOINT ["java", "-Dserver.port=${EXPOSE_PORT} -jar", "myservice.jar","&"]
 
 ##警告：由于没有设置路径，ADD、COPY可能会有文件找不到问题，查看docker build -f 路径
