@@ -22,8 +22,8 @@ fi
 
 #删除同名docker镜像
 image_id=$(docker images | grep "$IMAGE_NAME" | awk '{print $3}')
-if [ "image_id" != "" ]; then
-   docker rmi -f image_id
+if [ "$image_id" != "" ]; then
+   docker rmi -f $image_id
 fi
 
 #启动运行
