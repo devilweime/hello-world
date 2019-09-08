@@ -34,4 +34,4 @@ fi
 
 
 #启动运行
-docker run -itd -p $APP_PORT:$IMAGE_EXPOSE_PORT  $IMAGE_NAME $CONTAINER_NAME
+docker run -itd -p $APP_PORT:$IMAGE_EXPOSE_PORT --name $CONTAINER_NAME $IMAGE_NAME
