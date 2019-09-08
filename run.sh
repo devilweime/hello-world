@@ -11,7 +11,7 @@ IMAGE_EXPOSE_PORT=28080
 docker build -t $IMAGE_NAME .
 
 #推送到远程仓库
-docker push $DOCKER_REGISTRY $IMAGE_NAME
+docker push $DOCKER_REGISTRY:$IMAGE_NAME
 
 #删除同名docker容器
 cid=$(docker ps -a| grep "$CONTAINER_NAME" | awk '{print $1}')

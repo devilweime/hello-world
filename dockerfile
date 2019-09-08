@@ -16,6 +16,6 @@ ADD target/${JAR_FILE} /usr/opt/hello-word/myservice.jar
 EXPOSE ${EXPOSE_PORT}
 
 #入口
-ENTRYPOINT ["/usr/bin/java", "-Dserver.port=${EXPOSE_PORT} -jar", "/usr/share/myservice/myservice.jar"]
+ENTRYPOINT ["java", "-Dserver.port=${EXPOSE_PORT} -jar", "/usr/share/myservice/myservice.jar"]
 
 ##警告：由于没有设置路径，ADD、COPY可能会有文件找不到问题，查看docker build -f 路径
